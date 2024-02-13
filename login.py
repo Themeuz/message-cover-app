@@ -7,14 +7,14 @@ import flet as ft
 # Estilo comumente usado para links
 link_style = {
     "height": 50,
-    "focused_border_color": "#F4CE14",
+    "focused_border_color": "#FFFFF",
     "border_radius": 5,
     "cursor_height": 16,
     "cursor_color": "white",
     "content_padding": 10,
     "border_width": 1.5,
     "text_size": 14,
-    "label_style": ft.TextStyle(color="#F4CE14"),
+    "label_style": ft.TextStyle(color="#C08497"),
 }
 # ------------------------------------
 # Classe: Link:
@@ -46,58 +46,44 @@ class Link(ft.TextField):
 
 # Define a página de perfil...
 class ProfilePage(ft.View):
-    """Página de perfil com informações e links copiáveis."""
 
-    def __init__(self, page: ft.Page):
-        """Cria uma nova página de perfil.
+    # ...
 
-        Args:
-            page (ft.Page): Página principal do app.
-        """
-        super().__init__(route="/profile", padding=20)
-        self.page = page
-
-        self.controls = [
-            ft.SafeArea(
-                expand=True,
-                content=ft.Column(
-                    horizontal_alignment="center",
-                    controls=[
-                        ft.Divider(height=20, color="transparent"),
-                        ft.Container(
-                            bgcolor="white10",
-                            width=128,
-                            height=128,
-                            shape=ft.BoxShape("circle"),
-                            image_src="/profile.jpg",
-                            image_fit="cover",
-                            shadow=ft.BoxShadow(
-                                spread_radius=6,
-                                blur_radius=20,
-                                color=ft.colors.with_opacity(0.71, "black"),
-                            ),
-                        ),
-                        ft.Divider(height=10, color="transparent"),
-                        ft.Text("Discord-Cover", size=32),
-                        ft.Text(
-                            "Aplicativo de Mensagem Loggin",
-                            weight="w400",
-                            text_align="center",
-                        ),
-                        ft.Divider(height=50, color="transparent"),
-                        ft.Column(
-                            spacing=20,
-                            controls=[
-                                # Insira os itens de link aqui...
-                                Link("Name", "Seu nome", self.page),
-                                Link("Senha", "*********", self.page),
-                                Link("Email", "joaosembraco@gmail.com", self.page),
-                            ],
-                        ),
-                    ],
+    controls = [
+        # ...
+        ft.Column(
+            spacing=20,
+            controls=[
+                # Insira os itens de texto aqui...
+                TextField(
+                    label="Nome",
+                    value="",
+                    text_size=14,
+                    border_radius=5,
+                    border_color="#C08497",
+                    padding=ft.padding.only(left=10, right=10),
                 ),
-            ),
-        ]
+                TextField(
+                    label="Senha",
+                    value="",
+                    password=True,
+                    text_size=14,
+                    border_radius=5,
+                    border_color="#C08497",
+                    padding=ft.padding.only(left=10, right=10),
+                ),
+                TextField(
+                    label="Email",
+                    value="",
+                    text_size=14,
+                    border_radius=5,
+                    border_color="#C08497",
+                    padding=ft.padding.only(left=10, right=10),
+                ),
+            ],
+        ),
+    ]
+
 
 # Define a página inicial...
 class LandingPage(ft.View):
@@ -108,7 +94,7 @@ class LandingPage(ft.View):
         self.button = ft.Container(
             border_radius=5,
             expand=True,
-            bgcolor="#F4CE14",
+            bgcolor="#C08497",
             content=ft.Text("Check Linkage", color="black", size=18),
             padding=ft.padding.only(left=25, right=25, top=10, bottom=10),
             alignment=ft.alignment.center,
@@ -127,7 +113,7 @@ class LandingPage(ft.View):
                                 self.lock,
                                 ft.Divider(height=70, color="transparent"),
                                 ft.Text(
-                                    "Link management involves organizing, tracking, and optimizing URLs for effective online presence.",
+                                    "Não sei",
                                     size=18,
                                     text_align="center",
                                 ),
